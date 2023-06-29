@@ -1,11 +1,13 @@
 import './Page.css';
+import BarStats from '../components/barChart';
 import { useEffect, useState, } from "react";
 import { useParams } from 'react-router-dom'
 import kcal from '../assets/kcal.png'
 import lipides from '../assets/lipides.png'
 import proteines from '../assets/proteines.png'
 import glucides from '../assets/glucides.png'
-import DataApi from '../api/Api'
+// import get from '../service/Api'
+import get from '../service/Mocked'
 
 /** 
  * React component for User Page 
@@ -18,7 +20,7 @@ function UserPage() {
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    const call = new DataApi()
+    const call = new get (id)
     call.get(id, '')
     .then(function (res){
       setData(res)
@@ -37,6 +39,7 @@ function UserPage() {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
           <div className="score">
+            <BarStats id={id}/>
             <div className='nutriscore'>
               <div>
                 <img src={kcal} alt='calories'/>
