@@ -1,4 +1,4 @@
-const USER_MAIN_DATA = [
+export const USER_MAIN_DATA = [
     {
         id: 12,
         userInfos: {
@@ -31,7 +31,7 @@ const USER_MAIN_DATA = [
     }
 ]
 
-const USER_ACTIVITY = [
+export const USER_ACTIVITY = [
     {
         userId: 12,
         sessions: [
@@ -115,7 +115,7 @@ const USER_ACTIVITY = [
 ]
 
 
-const USER_AVERAGE_SESSIONS = [
+export const USER_AVERAGE_SESSIONS = [
     {
         userId: 12,
         sessions: [
@@ -185,7 +185,7 @@ const USER_AVERAGE_SESSIONS = [
 ]
 
 
-const USER_PERFORMANCE = [
+export const USER_PERFORMANCE = [
     {
         userId: 12,
         kind: {
@@ -262,18 +262,18 @@ const USER_PERFORMANCE = [
     }
 ]
 
-module.exports.getUserById = id => USER_MAIN_DATA
-    .filter(user => user.id === id)
-    .shift()
+// module.exports.getUserById = id => USER_MAIN_DATA
+//     .filter(user => user.id === id)
+//     .shift()
 
-module.exports.getUserActivityById = id => USER_ACTIVITY
-    .filter(activity => activity.userId === id)
-    .shift()
+// module.exports.getUserActivityById = id => USER_ACTIVITY
+//     .filter(activity => activity.userId === id)
+//     .shift()
 
-module.exports.getUserAverageSession = id => USER_AVERAGE_SESSIONS
-    .filter(average => average.userId === id)
-    .shift()
+// module.exports.getUserAverageSession = id => USER_AVERAGE_SESSIONS
+//     .filter(average => average.userId === id)
+//     .shift()
 
-module.exports.getUserPerformance = id => USER_PERFORMANCE
-    .filter(performance => performance.userId === id)
-    .shift()
+// module.exports.getUserPerformance = id => USER_PERFORMANCE
+//     .filter(performance => performance.userId === id)
+//     .shift()
