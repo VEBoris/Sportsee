@@ -1,7 +1,8 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from 'react';
-import DataApi from '../service/Api';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+// import get from '../service/Api';
+import get from '../service/Mocked'
 
 /** 
  * @function BarStats React component for user activity
@@ -14,7 +15,7 @@ function BarStats(props){
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    const call = new DataApi()
+    const call = new get()
     call.get(id, 'activity')
     .then(function (res){
       setData(res)

@@ -1,5 +1,6 @@
 import './Page.css';
 import BarStats from '../components/barChart';
+import LineStats from '../components/lineChart';
 import { useEffect, useState, } from "react";
 import { useParams } from 'react-router-dom'
 import kcal from '../assets/kcal.png'
@@ -60,6 +61,7 @@ function UserPage() {
             </div>
           </div>
           <div className='stats'>
+            <LineStats id={id}/>
           </div>
         </div>
       </div>
