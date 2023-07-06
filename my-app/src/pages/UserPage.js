@@ -1,13 +1,14 @@
 import './Page.css';
 import RadarStats from '../components/radarChart';
 import BarStats from '../components/barChart';
-import LineStats from '../components/lineChart';
+// import LineStats from '../components/lineChart';
 import { useEffect, useState, } from "react";
-import { useParams } from 'react-router-dom'
-import kcal from '../assets/kcal.png'
-import lipides from '../assets/lipides.png'
-import proteines from '../assets/proteines.png'
-import glucides from '../assets/glucides.png'
+import { useParams } from 'react-router-dom';
+import PieStats from '../components/pieChart';
+import kcal from '../assets/kcal.png';
+import lipides from '../assets/lipides.png';
+import proteines from '../assets/proteines.png';
+import glucides from '../assets/glucides.png';
 // import get from '../service/Api'
 import get from '../service/Mocked'
 
@@ -62,8 +63,9 @@ function UserPage() {
             </div>
           </div>
           <div className='stats'>
-            <LineStats id={id}/>
+            {/* <LineStats id={id}/> */}
             <RadarStats id={id}/>
+            <PieStats id={id}/>
           </div>
         </div>
       </div>
