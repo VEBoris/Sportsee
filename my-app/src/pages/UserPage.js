@@ -1,4 +1,5 @@
 import './Page.css';
+import RadarStats from '../components/radarChart';
 import BarStats from '../components/barChart';
 import LineStats from '../components/lineChart';
 import { useEffect, useState, } from "react";
@@ -62,6 +63,7 @@ function UserPage() {
           </div>
           <div className='stats'>
             <LineStats id={id}/>
+            <RadarStats id={id}/>
           </div>
         </div>
       </div>
