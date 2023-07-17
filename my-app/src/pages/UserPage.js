@@ -1,9 +1,9 @@
 import './Page.css';
 import RadarStats from '../components/radarChart';
 import BarStats from '../components/barChart';
-// import LineStats from '../components/lineChart';
+import LineStats from '../components/lineChart';
 import { useEffect, useState, } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, } from 'react-router-dom';
 import PieStats from '../components/pieChart';
 import kcal from '../assets/kcal.png';
 import lipides from '../assets/lipides.png';
@@ -20,6 +20,7 @@ import get from '../service/Mocked'
 
 function UserPage() {
   const {id} = useParams()
+  const navigate = useNavigate()
   const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
@@ -33,6 +34,10 @@ function UserPage() {
       return console.log('An error accours',err)
     })
   },[id, isLoading])
+    console.log(data===undefined)
+    if (data === undefined) {
+      navigate ('/Error')
+    }
   return (
     <>{!isLoading && (
       <div className='main'>
@@ -41,32 +46,34 @@ function UserPage() {
             <h1>Bonjour <span className="first-name">{data.userInfos.firstName}</span></h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
-          <div className="score">
+          <main>
+          <section className="score">
             <BarStats id={id}/>
-            <div className='nutriscore'>
-              <div>
+            <article className='stats'>
+              <LineStats id={id}/>
+              <RadarStats id={id}/>
+              <PieStats id={id}/>
+            </article>
+          </section>
+            <section className='nutriscore'>
+              <article className='nutri'>
                 <img src={kcal} alt='calories'/>
                 <p>{data.keyData.calorieCount + "kcal"}<br/><span>Calories</span></p>
-              </div>
-              <div>
+              </article>
+              <article className='nutri'>
                 <img src={proteines} alt='proteines'/>
                 <p>{data.keyData.proteinCount + "mg"}<br/><span>Proteines</span></p>
-              </div>
-              <div>
+              </article>
+              <article className='nutri'>
                 <img src={glucides} alt='glucides'/>
                 <p>{data.keyData.carbohydrateCount + "mg"}<br/><span>Glucides</span></p>
-              </div>
-              <div>
+              </article>
+              <article className='nutri'>
                 <img src={lipides} alt='lipides'/>
                 <p>{data.keyData.lipidCount + "mg"}<br/><span>Lipides</span></p>
-              </div>
-            </div>
-          </div>
-          <div className='stats'>
-            {/* <LineStats id={id}/> */}
-            <RadarStats id={id}/>
-            <PieStats id={id}/>
-          </div>
+              </article>
+            </section>
+        </main>
         </div>
       </div>
     )}</>

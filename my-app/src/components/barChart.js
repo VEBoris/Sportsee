@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-// import get from '../service/Api';
+// import get from '../service/Api'
 import get from '../service/Mocked'
 
 /** 

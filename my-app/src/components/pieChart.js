@@ -35,7 +35,7 @@ function PieStats(props) {
     <>{!isLoading && (
       <div className='piechart'>
       <p>Score</p>
-      <ResponsiveContainer width="100%" aspect={1}>
+      <ResponsiveContainer width="100%" height="60%" aspect={1}>
         <PieChart width={800} height={400}>
           <Pie
             data={score}

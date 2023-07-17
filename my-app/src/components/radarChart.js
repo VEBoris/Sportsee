@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React, { useState, useEffect } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
-// import get from '../service/Api';
+// import get from '../service/Api'
 import get from '../service/Mocked'
 
 /** 
@@ -16,7 +16,7 @@ function RadarStats(props){
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     const call = new get()
-    call.get(id, '/performance')
+    call.get(id, 'performance')
     .then(function (res){
       setData(res)
       setIsLoading(false)

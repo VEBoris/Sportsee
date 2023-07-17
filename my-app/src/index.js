@@ -5,6 +5,7 @@ import './index.css';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
+import Error from './pages/ErrorPage';
 import reportWebVitals from './reportWebVitals';
 import Aside from './components/Aside';
 
@@ -15,8 +16,9 @@ root.render(
       <Header/>
       <Aside/>
       <Routes>
+        <Route exact path="/user/:id" element={<UserPage/>}/>
+        <Route path="*" element={<Error/>}/>
         <Route exact path="/" element={<HomePage/>}/>
-        <Route path="/user/:id" element={<UserPage/>}/>
       </Routes>
     </Router>
   </React.StrictMode>
